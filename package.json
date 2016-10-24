@@ -49,8 +49,11 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.4.1",
     "redux": "^3.5.2",
+    "redux-socket.io": "^1.2.0",
     "redux-thunk": "^2.1.0",
-    "sanitize-html": "^1.11.4"
+    "sanitize-html": "^1.11.4",
+    "socket.io": "^1.5.1",
+    "socket.io-client": "^1.5.1"
   },
   "devDependencies": {
     "ava": "^0.15.2",

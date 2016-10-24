@@ -4,12 +4,30 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import path from 'path';
 import IntlWrapper from '../client/modules/Intl/IntlWrapper';
-
 // Webpack Requirements
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
+// initialize socket.io server
+import http from 'http';
+import socketIo from 'socket.io';
+
+const httpServer = http.createServer();
+httpServer.listen(3000);
+
+const io = socketIo();
+io.attach(httpServer);
+
+io.on('connection', (socket) => {
+  console.log('Socket connected: ' + socket.id); // eslint-disable-line
+  socket.on('action', (action) => {
+    if (action.type === 'server/hello') {
+      console.log(action.data); // eslint-disable-line
+      socket.emit('action', { type: 'message', data: 'action emission!' });
+    }
+  });
+});
 
 // Initialize the Express App
 const app = new Express();
