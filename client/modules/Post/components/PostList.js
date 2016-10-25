@@ -5,7 +5,7 @@ import PostListItem from './PostListItem/PostListItem';
 
 function PostList(props) {
   return (
-    <div className="listView">
+    <div className="listView" style={{width:"100%"}}>
       {
         props.posts.map(post => (
           <PostListItem

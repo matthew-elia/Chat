@@ -13,7 +13,7 @@ export function Header(props, context) {
         {
           context.router.isActive('/', true)
             ? <a className={styles['add-post-button']} href="#" id="addPost" onClick={props.toggleAddPost}>Add Post</a>
-            : null
+            : this.appears
         }
       </div>
     </div>

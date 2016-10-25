@@ -32,25 +32,23 @@ export class App extends Component {
       <div>
         {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
         <div>
-          <Helmet
-            title="Home"
-            titleTemplate="%s | Game App"
-            meta={[
-              { charset: 'utf-8' },
-              {
-                'http-equiv': 'X-UA-Compatible',
-                content: 'IE=edge',
-              },
-              {
-                name: 'viewport',
-                content: 'width=device-width, initial-scale=1',
-              },
-            ]}
-          />
-          <Header
-            toggleAddPost={this.toggleAddPostSection}
-          />
           <div className={styles.container}>
+            <Helmet
+              title="Home"
+              titleTemplate="%s | Game App"
+              meta={[
+                { charset: 'utf-8' },
+                {
+                  'http-equiv': 'X-UA-Compatible',
+                  content: 'IE=edge',
+                },
+                {
+                  name: 'viewport',
+                  content: 'width=device-width, initial-scale=1',
+                },
+              ]}
+            />
+            <Header toggleAddPost={this.toggleAddPostSection} />
             {this.props.children}
           </div>
           <Footer />

@@ -26,6 +26,9 @@ io.on('connection', (socket) => {
       socket.emit('action', { type: 'message', data: 'action emission!' });
     }
   });
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
 });
 
 // Initialize the Express App

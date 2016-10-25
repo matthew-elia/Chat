@@ -8,7 +8,7 @@ import bg from '../../header-bk.png';
 
 export function Footer() {
   return (
-    <div style={{ background: `#FFF`, height: `200px` }} className={styles.footer}></div>
+    <div className={styles.footer}></div>
   );
 }
 

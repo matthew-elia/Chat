@@ -13,6 +13,8 @@ import { toggleAddPost } from '../../../App/AppActions';
 import { getShowAddPost } from '../../../App/AppReducer';
 import { getPosts } from '../../PostReducer';
 
+import Footer from '../../../App/components/Footer/Footer';
+
 class PostListPage extends Component {
   componentDidMount() {
     this.props.dispatch(fetchPosts());
@@ -32,8 +34,12 @@ class PostListPage extends Component {
   render() {
     return (
       <div>
-        <PostCreateWidget addPost={this.handleAddPost} showAddPost={this.props.showAddPost} />
-        <PostList handleDeletePost={this.handleDeletePost} posts={this.props.posts} />
+        <div className="rightPane" style={{width:'80%', float:'right',borderLeft: '1px solid #fafafa',textAlign:'left'}}>
+          <PostList handleDeletePost={this.handleDeletePost} posts={this.props.posts}/>
+        </div>
+        <div className="leftPane" style={{width:'20%',position:'fixed',bottom:0,left:0}}>
+          <PostCreateWidget addPost={this.handleAddPost} showAddPost={this.props.showAddPost} />
+        </div>
       </div>
     );
   }
